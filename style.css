@@ -16,6 +16,8 @@ body {
 
 .card {
   background-color: rgba(128, 128, 128, 0.411);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   padding: 25px;
   border-radius: 15px;
 }
