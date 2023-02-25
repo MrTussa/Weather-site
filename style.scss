@@ -25,17 +25,20 @@ body {
     background-color: #00000050;
     padding: 5px 10px;
     border-radius: 178px;
+    width: 380px;
+    display: flex;
     &__bar {
         border: none;
         padding: 2.5px 5px;
         background-color: transparent;
-        width: 84%;
+        width: 100%;
         &:focus-visible {
             outline: none;
         }
     }
     &__button {
         border: none;
+        cursor: pointer;
         padding: 5px 10px;
         background-color: transparent;
     }
@@ -47,6 +50,20 @@ body {
     gap: 10px;
     &__about {
         font-weight: 400;
+    }
+    &__desc {
+        text-transform: capitalize;
+    }
+    &__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    &__icon {
+        width: fit-content;
+        height: 100%;
+        align-self: end;
     }
 }
 

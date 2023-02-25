@@ -27,18 +27,21 @@ body {
   background-color: rgba(0, 0, 0, 0.3137254902);
   padding: 5px 10px;
   border-radius: 178px;
+  width: 380px;
+  display: flex;
 }
 .search__bar {
   border: none;
   padding: 2.5px 5px;
   background-color: transparent;
-  width: 84%;
+  width: 100%;
 }
 .search__bar:focus-visible {
   outline: none;
 }
 .search__button {
   border: none;
+  cursor: pointer;
   padding: 5px 10px;
   background-color: transparent;
 }
@@ -50,6 +53,21 @@ body {
 }
 .weather__about {
   font-weight: 400;
+}
+.weather__desc {
+  text-transform: capitalize;
+}
+.weather__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+.weather__icon {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 100%;
+  align-self: end;
 }
 
 .temp {
