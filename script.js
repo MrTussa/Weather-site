@@ -1,4 +1,4 @@
-let weather = {
+const weather = {
   apiKey: "dba7d7b658e0ea9699b67a8ae8aabb6a",
   weatherGeo: function (city) {
     const xhr = new XMLHttpRequest();
@@ -17,24 +17,30 @@ let weather = {
   },
 
   weatherFetch: function (data) {
-    const lat = data[0].lat;
-    const lon = data[0].lon;
-    const xhr = new XMLHttpRequest();
-    xhr.open(
-      "GET",
-      "https://api.openweathermap.org/data/2.5/weather?lat=" +
-        lat +
-        "&lon=" +
-        lon +
-        "&appid=" +
-        this.apiKey +
-        "&units=metric"
-    );
-    xhr.onload = function () {
-      const responce = JSON.parse(xhr.responseText);
-      weather.displayWeather(responce);
-    };
-    xhr.send();
+    const error = document.getElementById("error-message")
+    if(data.length == 0) {
+      error.textContent = "Can't find object"
+    } else {
+      error.textContent = ""
+      const lat = data[0].lat;
+      const lon = data[0].lon;
+      const xhr = new XMLHttpRequest();
+      xhr.open(
+        "GET",
+        "https://api.openweathermap.org/data/2.5/weather?lat=" +
+          lat +
+          "&lon=" +
+          lon +
+          "&appid=" +
+          this.apiKey +
+          "&units=metric"
+      );
+      xhr.onload = function () {
+        const responce = JSON.parse(xhr.responseText);
+        weather.displayWeather(responce);
+      };
+      xhr.send();
+    }
   },
 
   displayWeather: function (data) {
@@ -50,25 +56,21 @@ let weather = {
     const iconElement = document.querySelector(".weather__icon");
     const body = document.body;
     cityElement.innerText = "Weather in " + name;
-    tempElement.innerText = temp + "°C";
+    tempElement.innerText = temp.toFixed() + "°C";
     descElement.innerText = description;
     windElement.innerText = "Wind speed: " + speed + "km/h";
     humidityElement.innerText = "Humidity: " + humidity + "%";
     iconElement.src = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
     const cloudState = descElement.textContent.split(" ");
-    console.log(cloudState[1]);
     switch (cloudState[1]) {
       case "clouds":
         body.style.backgroundImage = "url('img/cloudy weather.jpg')";
-        console.log(body.style);
         break;
       case "sky":
         body.style.backgroundImage = "url('img/sunny weather.jpg')";
-        console.log(body.style);
         break;
       case "rain":
         body.style.backgroundImage = "url('img/rainy weather.jpg')";
-        console.log(body.style);
         break;
     }
   },
