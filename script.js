@@ -1,45 +1,42 @@
 const weather = {
   apiKey: "dba7d7b658e0ea9699b67a8ae8aabb6a",
   weatherGeo: function (city) {
-    const xhr = new XMLHttpRequest();
-    xhr.open(
-      "GET",
+    fetch(
       "http://api.openweathermap.org/geo/1.0/direct?q=" +
-        city +
-        "&limit=5&appid=" +
-        this.apiKey
-    );
-    xhr.onload = function () {
-      const responce = JSON.parse(xhr.responseText);
-      weather.weatherFetch(responce);
-    };
-    xhr.send();
+      city +
+      "&limit=5&appid=" +
+      this.apiKey
+    ) .then((responce) => {
+      return responce.json()
+    })
+    .then((data) => {
+      weather.weatherFetch(data);
+    })
   },
 
   weatherFetch: function (data) {
     const error = document.getElementById("error-message")
-    if(data.length == 0) {
-      error.textContent = "Can't find object"
+    if (data.length == 0) {
+      error.textContent = "Can't find location"
     } else {
       error.textContent = ""
       const lat = data[0].lat;
       const lon = data[0].lon;
-      const xhr = new XMLHttpRequest();
-      xhr.open(
-        "GET",
+      fetch(
         "https://api.openweathermap.org/data/2.5/weather?lat=" +
-          lat +
-          "&lon=" +
-          lon +
-          "&appid=" +
-          this.apiKey +
-          "&units=metric"
-      );
-      xhr.onload = function () {
-        const responce = JSON.parse(xhr.responseText);
-        weather.displayWeather(responce);
-      };
-      xhr.send();
+        lat +
+        "&lon=" +
+        lon +
+        "&appid=" +
+        this.apiKey +
+        "&units=metric"
+      ) .then((responce) => {
+        return responce.json()
+      })
+      .then((data) => {
+
+        weather.displayWeather(data);
+      })
     }
   },
 

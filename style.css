@@ -2,32 +2,24 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 300;
   background-size: cover;
-  -webkit-transition: background 0.5s ease;
+  background-position: center center;
   transition: background 0.5s ease;
 }
 
 .card {
   background: rgba(255, 255, 255, 0.23);
-  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.21);
@@ -43,26 +35,21 @@ body {
 }
 
 .search {
-  background-color: #00000050;
+  background-color: rgba(0, 0, 0, 0.3137254902);
   padding: 5px 10px;
   border-radius: 178px;
   width: 380px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .search__bar {
   border: none;
   padding: 2.5px 5px;
   background-color: transparent;
   width: 100%;
 }
-
 .search__bar:focus-visible {
   outline: none;
 }
-
 .search__button {
   border: none;
   cursor: pointer;
@@ -71,50 +58,30 @@ body {
 }
 
 .weather {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 10px;
 }
-
 .weather__about {
   font-weight: 400;
 }
-
 .weather__desc {
   text-transform: capitalize;
 }
-
 .weather__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 10px;
 }
-
 .weather__icon {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   height: 100%;
-  -ms-flex-item-align: end;
-      -ms-grid-row-align: end;
-      align-self: end;
+  align-self: end;
 }
 
 .temp {
   font-weight: 600;
   font-size: 50px;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
